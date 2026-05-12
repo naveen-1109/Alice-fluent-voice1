@@ -1,9 +1,10 @@
 #!/bin/bash
-
-# Exit on error
 set -e
-
-echo "Starting Flutter Web build process..."
+echo "--- Environment Check ---"
+pwd
+ls -la
+echo "PATH: $PATH"
+echo "--- Starting Flutter Web build process ---"
 
 # 1. Create .env file from environment variables (for Vercel)
 echo "Creating .env file..."
