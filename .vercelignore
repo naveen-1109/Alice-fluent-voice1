@@ -1,0 +1,28 @@
+# Ignore platform-specific directories
+android/
+ios/
+linux/
+windows/
+macos/
+backend/
+
+# Ignore local build artifacts and caches
+build/
+.dart_tool/
+.pub-cache/
+.pub/
+.idea/
+.vscode/
+
+# Ignore virtual environments
+venv/
+env/
+.env
+
+# Ignore git
+.git/
+.github/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
