@@ -29,8 +29,12 @@ flutter config --enable-web
 # 5. Get dependencies
 flutter pub get
 
-# 6. Build Web Release
+# 6. Build Web Release with Environment Variables
 echo "Building Flutter Web..."
-flutter build web --release --base-href / --pwa-strategy=offline-first
+flutter build web --release \
+  --base-href / \
+  --pwa-strategy=offline-first \
+  --dart-define=SUPABASE_URL="${SUPABASE_URL}" \
+  --dart-define=SUPABASE_ANON_KEY="${SUPABASE_ANON_KEY}"
 
 echo "Build completed successfully!"

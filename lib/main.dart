@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'theme/colors.dart';
 import 'theme/typography.dart';
 import 'screens/auth_wrapper.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'config/env_config.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'providers/auth_provider.dart';
 import 'providers/patient_provider.dart';
@@ -14,11 +14,12 @@ Future<void> main() async {
   usePathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   
-  await dotenv.load(fileName: ".env");
+  // Validate environment variables at startup
+  EnvConfig.validate();
   
   await Supabase.initialize(
-    url: dotenv.env['SUPABASE_URL'] ?? '',
-    anonKey: dotenv.env['SUPABASE_ANON_KEY'] ?? '',
+    url: EnvConfig.supabaseUrl,
+    anonKey: EnvConfig.supabaseAnonKey,
   );
 
   runApp(
