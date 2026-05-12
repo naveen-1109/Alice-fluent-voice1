@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:provider/provider.dart';
 import 'theme/colors.dart';
 import 'theme/typography.dart';
@@ -10,6 +11,7 @@ import 'providers/patient_provider.dart';
 import 'providers/therapist_provider.dart';
 
 Future<void> main() async {
+  usePathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   
   await dotenv.load(fileName: ".env");
